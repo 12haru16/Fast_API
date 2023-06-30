@@ -26,7 +26,7 @@ async def create_todo(request:Request,response:Response,data:TodoBody, csrf_prot
 
 @router.get("/api/todo",response_model=List[Todo])
 async def get_todos(request:Request):
-    #auth.verify_jwt(request)
+    auth.verify_jwt(request)
     res=await db_get_todos()
     return res
 
